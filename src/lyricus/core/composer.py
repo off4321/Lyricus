@@ -72,6 +72,9 @@ class Composer:
                 logger.info(f"ABC記譜法を保存しました: {abc_path}")
             
             logger.info(f"音楽の生成と保存に成功しました: {midi_path}")
+
+            score.write('midi', fp=str(output_path))
+            logger.info(f"MIDIファイルを正常に書き出しました: {output_path}")
             return midi_path
             
         except Exception as e:
