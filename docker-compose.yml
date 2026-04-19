@@ -1,0 +1,15 @@
+services:
+  lyricus-dev:
+    build:
+      context: ./docker
+      dockerfile: dockerfile_phase1
+    container_name: lyricus_dev
+    volumes:
+      - .:/app  # ホストのカレントディレクトリをコンテナの/appに同期
+    ports:
+      - "50000:8080"
+    # Linux/Windows/MacでホストのOllamaにアクセスするための設定
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    stdin_open: true
+    tty: true
